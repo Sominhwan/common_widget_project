@@ -19,7 +19,6 @@ class _AdvertisementWidgetState extends State<AdvertisementWidget> {
       child: Column(
         children: [
           SizedBox(height: screenHeight/2 -50),
-          // 서명 값이 존재하는 경우
           Container(
             width: double.maxFinite,
             height: 50,
