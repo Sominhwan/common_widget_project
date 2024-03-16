@@ -1,6 +1,11 @@
 
+import 'dart:convert';
+import 'dart:developer';
+import 'dart:typed_data';
+
 import 'package:common_project/views/search/search_view.dart';
 import 'package:common_project/widget/advertisement_widget.dart';
+import 'package:common_project/widget/signature_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -15,25 +20,12 @@ class MainView extends StatefulWidget {
 }
 
 class _MainViewState extends State<MainView> {
-  void _showBottomAd(BuildContext context) {
-    final adContent = Container(
-      height: 50, // Height of the ad container
-      color: Colors.blueAccent,
-      child: Center(
-        child: Text(
-          'This is an Advertisement',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        ),
-      ),
-    );
-
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return adContent;
-      }
-    );
-  }
+  Uint8List? signature = Uint8List.fromList([
+    // 간단한 예시 데이터입니다. 실제 PNG 데이터를 사용해야 합니다.
+    0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A,
+    // 이 부분에 PNG 파일의 나머지 데이터가 들어가야 합니다.
+  ]);
+  Uint8List? saveSignatureValue;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +53,7 @@ class _MainViewState extends State<MainView> {
             },
           ),
           InkWell(
-            child: const Icon(Icons.search, color: Colors.black),
+            child: const Text('검색 위젯'),
             onTap: () {
               showDialog(
                 context: context,
@@ -70,11 +62,36 @@ class _MainViewState extends State<MainView> {
                     heightFactor: 1.0,
                     child: Container(
                       color: const Color.fromRGBO(248, 248, 248, 1),
-                      child: SearchView(),
+                      child: const SearchView(),
                     ),
                   );
                 },
               );
+            },
+          ),
+          InkWell(
+            child: const Text('서명 위젯'),
+            onTap: () async {
+              Uint8List? signatureValue = await showModalBottomSheet(
+                context: context,
+                isScrollControlled: true,
+                backgroundColor: Colors.white,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(15.0)),
+                ),
+                builder: (context) {
+                  return SignatureWidget(
+                    widgetTitle: '서명',
+                    initialValue: signature,
+                  );
+                },
+              );
+              if(signatureValue != null) {
+                setState(() {
+                  saveSignatureValue = signatureValue;
+                  log(saveSignatureValue.toString());
+                });
+              }
             },
           ),
         ],

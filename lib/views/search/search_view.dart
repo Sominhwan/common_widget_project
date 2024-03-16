@@ -357,7 +357,7 @@ class _SearchViewState extends State<SearchView> {
                           const SizedBox(width: 5),
                           ToggleSwitch(
                             minWidth: 46.0,
-                            minHeight: 16.0,
+                            minHeight: 19.0,
                             cornerRadius: 20.0,
                             activeBgColors: const [[Colors.blueAccent]],
                             activeFgColor: Colors.white,

@@ -2,7 +2,6 @@
 import 'package:common_project/util/SharedPref.dart';
 import 'package:common_project/views/search/model/menu_auth_info_model.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class SearchProvider extends ChangeNotifier {
   final Set<int> _readAutoSaveSet = {};
