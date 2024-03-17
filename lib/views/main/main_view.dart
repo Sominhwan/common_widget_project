@@ -1,12 +1,12 @@
 
-import 'dart:convert';
 import 'dart:developer';
 import 'dart:typed_data';
 
 import 'package:common_project/views/search/search_view.dart';
 import 'package:common_project/widget/advertisement_widget.dart';
+import 'package:common_project/widget/custom_toast_widget.dart';
+import 'package:common_project/widget/select_item_widget.dart';
 import 'package:common_project/widget/signature_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MainView extends StatefulWidget {
@@ -20,19 +20,25 @@ class MainView extends StatefulWidget {
 }
 
 class _MainViewState extends State<MainView> {
+  /// 서명 위젯 변수
   Uint8List? signature = Uint8List.fromList([
     // 간단한 예시 데이터입니다. 실제 PNG 데이터를 사용해야 합니다.
     0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A,
     // 이 부분에 PNG 파일의 나머지 데이터가 들어가야 합니다.
   ]);
   Uint8List? saveSignatureValue;
+  /// 선택 위젯 변수
+  List<String> dropDownList = ['10', '20', '30'];
+  String selectValue = '10';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          /// 광고 위젯
           InkWell(
             child: const Text('광고 위젯'),
             onTap: () {
@@ -52,6 +58,7 @@ class _MainViewState extends State<MainView> {
               );
             },
           ),
+          /// 검색 위젯
           InkWell(
             child: const Text('검색 위젯'),
             onTap: () {
@@ -69,6 +76,7 @@ class _MainViewState extends State<MainView> {
               );
             },
           ),
+          /// 서명 위젯
           InkWell(
             child: const Text('서명 위젯'),
             onTap: () async {
@@ -94,6 +102,39 @@ class _MainViewState extends State<MainView> {
               }
             },
           ),
+          /// 선택 위젯
+          InkWell(
+            child: const Text('선택 위젯'),
+            onTap: () async {
+              String? value = await showModalBottomSheet(
+                context: context,
+                isScrollControlled: true,
+                backgroundColor: Colors.white,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(15.0)),
+                ),
+                builder: (context) {
+                  return SelectItemWidget(
+                    dropDownList: dropDownList,
+                    selectedValue: selectValue,
+                  );
+                },
+              );
+              setState(() {
+                log('선택한 값 $value');
+                if(value != null) {
+                  selectValue = value;
+                }
+              });
+            },
+          ),
+          /// 커스텀 토스트 위젯
+          InkWell(
+            child: const Text('커스텀 토스트 위젯'),
+            onTap: () {
+              CustomToastWidget.showToast(context, '저장완료 되었습니다!', false, null);
+            },
+          )
         ],
       ),
     );
