@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:common_project/views/search/search_view.dart';
 import 'package:common_project/widget/advertisement_widget.dart';
+import 'package:common_project/widget/custom_dialog_widget.dart';
 import 'package:common_project/widget/custom_toast_widget.dart';
 import 'package:common_project/widget/select_item_widget.dart';
 import 'package:common_project/widget/signature_widget.dart';
@@ -133,6 +134,18 @@ class _MainViewState extends State<MainView> {
             child: const Text('커스텀 토스트 위젯'),
             onTap: () {
               CustomToastWidget.showToast(context, '저장완료 되었습니다!', false, null);
+            },
+          ),
+          /// 커스텀 다이얼로그 위젯
+          InkWell(
+            child: const Text('커스텀 다이얼로그 위젯'),
+            onTap: () {
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return CustomDialogWidget();
+                  },
+              );
             },
           )
         ],
