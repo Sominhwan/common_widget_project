@@ -4,11 +4,14 @@ import 'dart:typed_data';
 
 import 'package:common_project/views/search/search_view.dart';
 import 'package:common_project/widget/advertisement_widget.dart';
+import 'package:common_project/widget/custom_calendar_widget.dart';
+import 'package:common_project/widget/custom_date_selector_widget.dart';
 import 'package:common_project/widget/custom_dialog_widget.dart';
 import 'package:common_project/widget/custom_toast_widget.dart';
 import 'package:common_project/widget/select_item_widget.dart';
 import 'package:common_project/widget/signature_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
@@ -31,6 +34,13 @@ class _MainViewState extends State<MainView> {
   /// 선택 위젯 변수
   List<String> dropDownList = ['10', '20', '30'];
   String selectValue = '10';
+  /// 커스텀 달력
+  Map<DateTime, List<Event>> events = {
+    DateTime.utc(2024,3,13) : [ Event('title'), Event('title2') ],
+    DateTime.utc(2024,3,14) : [ Event('title3') ],
+  };
+  /// 달력 초기값 셋팅
+  DateTime selectedDt = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -147,7 +157,48 @@ class _MainViewState extends State<MainView> {
                   },
               );
             },
-          )
+          ),
+          InkWell(
+            child: const Text('커스텀 다이얼로그 위젯2'),
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return CustomDateSelectorWidget(
+                    selectedDt: DateTime.now(), // Current date as placeholder
+                    minDt: DateTime(2020), // Minimum date as placeholder
+                    maxDt: DateTime(2025), // Maximum date as placeholder
+                    onChanged: (DateTime newDate) {
+                      // Handle date change. Replace this with your logic.
+                      print(newDate);
+                    },
+                    event: events,
+                    // Assuming 'event' parameter is optional and not required for demonstration
+                  );
+                },
+              );
+            },
+          ),
+          InkWell(
+            child: const Text('커스텀 다이얼로그 위젯3'),
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return CustomCalendarWidget(
+                    onChanged: (DateTime newDate) {
+                      // Handle date change. Replace this with your logic.
+                      print(newDate);
+                      setState(() {
+                        selectedDt = newDate;
+                      });
+                    },
+                    selectedDt: selectedDt,
+                  );
+                },
+              );
+            },
+          ),
         ],
       ),
     );
