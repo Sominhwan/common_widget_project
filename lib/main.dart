@@ -1,5 +1,6 @@
 import 'package:common_project/util/SharedPref.dart';
 import 'package:common_project/views/main/main_view.dart';
+import 'package:common_project/views/page1/page1_view.dart';
 import 'package:common_project/views/search/provider/search_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -17,6 +18,7 @@ void main() async {
 
 final routes = {
   MainView.path: (context) => const MainView(), // 메인화면
+  Page1View.path: (context) => const Page1View(), // 메인화면
 };
 
 class MyApp extends StatelessWidget {

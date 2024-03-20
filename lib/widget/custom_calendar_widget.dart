@@ -45,20 +45,6 @@ class _CustomCalendarWidgetState extends State<CustomCalendarWidget> {
     return meetings;
   }
 
-  void _onPrevious() {
-    final DateTime currentMonth = _controller.displayDate!;
-    final DateTime previousMonth = DateTime(currentMonth.year, currentMonth.month, 1).subtract(const Duration(days: 1));
-    _viewDate = DateTime(previousMonth.year, previousMonth.month);
-    _controller.displayDate = _viewDate;
-  }
-
-  void _onNext() {
-    final DateTime currentMonth = _controller.displayDate!;
-    final DateTime nextMonth = DateTime(currentMonth.year, currentMonth.month + 1, 1);
-    _viewDate = DateTime(nextMonth.year, nextMonth.month);
-    _controller.displayDate = _viewDate;
-  }
-
   @override
   void initState() {
     super.initState();
@@ -69,130 +55,104 @@ class _CustomCalendarWidgetState extends State<CustomCalendarWidget> {
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
-
     return Dialog(
       backgroundColor: Colors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: SizedBox(
-        width: deviceSize.width * 0.9,
-        height: deviceSize.height * 1,
-        child: Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.chevron_left),
-                    onPressed: () {
-                      setState(() {
-                        _onPrevious();
-                      });
-                    },
-                  ),
-                  Text(
-                    '${_viewDate.year}년 ${_viewDate.month}월',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.chevron_right),
-                    onPressed: () {
-                      setState(() {
-                        _onNext();
-                      });
-                    },
-                  ),
-                ],
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      child: Column(
+        children: [
+          Container(
+            height: 20,
+          ),
+          Expanded(
+            child: SfCalendar(
+              key: ObjectKey(_viewDate),
+              controller: _controller,
+              view: CalendarView.month,
+              showDatePickerButton: true,
+              showNavigationArrow: true,
+              dataSource: MeetingDataSource(getAppointments()),
+              viewHeaderStyle: const ViewHeaderStyle(
+                  backgroundColor: Colors.grey,
+                  dayTextStyle: TextStyle(
+                      fontSize: 16,
+                      color: Color(0xFFff5eaea),
+                      fontWeight: FontWeight.w500),
+                  dateTextStyle: TextStyle(
+                      fontSize: 22,
+                      color: Color(0xFFff5eaea),
+                      letterSpacing: 2,
+                      fontWeight: FontWeight.w500)),
+              headerHeight: 50,
+              headerDateFormat: 'yyyy년 MMM',
+              headerStyle: const CalendarHeaderStyle(
+                textAlign: TextAlign.center,
+                textStyle: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  color: Colors.black,
+                ),
               ),
+              monthViewSettings: const MonthViewSettings(
+                appointmentDisplayMode: MonthAppointmentDisplayMode.appointment,
+                showAgenda: true,
+              ),
+              onTap: (calendarTapDetails) {
+                print(calendarTapDetails.date);
+              },
+              onViewChanged: (ViewChangedDetails details) {
+
+              },
             ),
-            Expanded(
-              child: SfCalendar(
-                key: ObjectKey(_viewDate),
-                controller: _controller,
-                view: CalendarView.month,
-                dataSource: MeetingDataSource(getAppointments()),
-                headerHeight: 0,
-                headerStyle: const CalendarHeaderStyle(
-                  textAlign: TextAlign.center,
-                  textStyle: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                    color: Colors.black,
+          ),
+          Container(
+            margin: const EdgeInsetsDirectional.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      minimumSize: const Size.fromHeight(30),
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                      ),
+                      foregroundColor: Colors.transparent,
+                      textStyle: const TextStyle(
+                          fontSize: 15, fontWeight: FontWeight.w600),
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text('취소', style: TextStyle(color: Colors.black, fontSize: 15)),
                   ),
                 ),
-                monthViewSettings: const MonthViewSettings(
-                  appointmentDisplayMode: MonthAppointmentDisplayMode.appointment,
-                  showAgenda: true,
-                ),
-                onTap: (calendarTapDetails) {
-                  print(calendarTapDetails.date);
-                },
-                onViewChanged: (viewChangedDetails) {
-                  // setState(() {
-                    if (viewChangedDetails.visibleDates.isNotEmpty) {
-                      // visibleDates는 현재 뷰에 표시된 날짜들의 리스트입니다.
-                      _viewDate = DateTime(viewChangedDetails.visibleDates[0].year, viewChangedDetails.visibleDates[0].month);
-                    }
-                  // });
-                },
-              ),
-            ),
-            Container(
-              margin: const EdgeInsetsDirectional.all(10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: TextButton(
-                      style: TextButton.styleFrom(
-                        minimumSize: const Size.fromHeight(30),
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                        foregroundColor: Colors.transparent,
-                        textStyle: const TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w600),
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      minimumSize: const Size.fromHeight(30),
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
                       ),
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: const Text('취소', style: TextStyle(color: Colors.black, fontSize: 15)),
+                      foregroundColor: Colors.transparent,
+                      textStyle: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     ),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                      widget.onChanged.call(_controller.selectedDate!);
+                    },
+                    child: const Text('확인', style: TextStyle(color: Colors.black, fontSize: 15)),
                   ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: TextButton(
-                      style: TextButton.styleFrom(
-                        minimumSize: const Size.fromHeight(30),
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                        foregroundColor: Colors.transparent,
-                        textStyle: const TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                        ),
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                        widget.onChanged.call(_controller.selectedDate!);
-                      },
-                      child: const Text('확인', style: TextStyle(color: Colors.black, fontSize: 15)),
-                    ),
-                  )
-                ],
-              ),
+                )
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

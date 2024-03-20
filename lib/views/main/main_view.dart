@@ -2,8 +2,10 @@
 import 'dart:developer';
 import 'dart:typed_data';
 
+import 'package:common_project/views/page1/page1_view.dart';
 import 'package:common_project/views/search/search_view.dart';
 import 'package:common_project/widget/advertisement_widget.dart';
+import 'package:common_project/widget/confirm_cancel_dialog_widget.dart';
 import 'package:common_project/widget/custom_calendar_widget.dart';
 import 'package:common_project/widget/custom_date_selector_widget.dart';
 import 'package:common_project/widget/custom_dialog_widget.dart';
@@ -11,7 +13,6 @@ import 'package:common_project/widget/custom_toast_widget.dart';
 import 'package:common_project/widget/select_item_widget.dart';
 import 'package:common_project/widget/signature_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
@@ -159,7 +160,7 @@ class _MainViewState extends State<MainView> {
             },
           ),
           InkWell(
-            child: const Text('커스텀 다이얼로그 위젯2'),
+            child: const Text('커스텀 달력 위젯'),
             onTap: () {
               showDialog(
                 context: context,
@@ -180,7 +181,7 @@ class _MainViewState extends State<MainView> {
             },
           ),
           InkWell(
-            child: const Text('커스텀 다이얼로그 위젯3'),
+            child: const Text('커스텀 달력(스케줄) 위젯'),
             onTap: () {
               showDialog(
                 context: context,
@@ -196,6 +197,33 @@ class _MainViewState extends State<MainView> {
                     selectedDt: selectedDt,
                   );
                 },
+              );
+            },
+          ),
+          /// 취소 확인 다이얼로그
+          InkWell(
+            child: const Text('커스텀 다이얼로그 위젯'),
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return ConfirmCancelDialogWidget(
+                    title: '삭제하시겠습니까?',
+                    onChanged: (bool value) {
+                        print('값 ${value}');
+                    },
+                  );
+                },
+              );
+            },
+          ),
+          /// 페이지 이동
+          InkWell(
+            child: const Text('탭 페이지'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Page1View()),
               );
             },
           ),
