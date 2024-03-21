@@ -1,4 +1,6 @@
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
@@ -18,7 +20,7 @@ class CustomCalendarWidget extends StatefulWidget {
 
 class _CustomCalendarWidgetState extends State<CustomCalendarWidget> {
   final CalendarController _controller = CalendarController();
-  DateTime _viewDate = DateTime.now();
+  final DateTime _viewDate = DateTime.now();
   // Generate some sample appointments
   List<Appointment> getAppointments() {
     final List<Appointment> meetings = <Appointment>[];
@@ -54,7 +56,6 @@ class _CustomCalendarWidgetState extends State<CustomCalendarWidget> {
   }
   @override
   Widget build(BuildContext context) {
-    final deviceSize = MediaQuery.of(context).size;
     return Dialog(
       backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -75,11 +76,11 @@ class _CustomCalendarWidgetState extends State<CustomCalendarWidget> {
                   backgroundColor: Colors.grey,
                   dayTextStyle: TextStyle(
                       fontSize: 16,
-                      color: Color(0xFFff5eaea),
+                      color: Color(0xffff5eaea),
                       fontWeight: FontWeight.w500),
                   dateTextStyle: TextStyle(
                       fontSize: 22,
-                      color: Color(0xFFff5eaea),
+                      color: Color(0xffff5eaea),
                       letterSpacing: 2,
                       fontWeight: FontWeight.w500)),
               headerHeight: 50,
@@ -97,7 +98,7 @@ class _CustomCalendarWidgetState extends State<CustomCalendarWidget> {
                 showAgenda: true,
               ),
               onTap: (calendarTapDetails) {
-                print(calendarTapDetails.date);
+                log(calendarTapDetails.date.toString());
               },
               onViewChanged: (ViewChangedDetails details) {
 
