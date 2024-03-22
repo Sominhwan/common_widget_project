@@ -2,6 +2,7 @@
 import 'dart:developer';
 import 'dart:typed_data';
 
+import 'package:common_project/views/emergency_guide_map_manage/emergency_guide_map_manage_view.dart';
 import 'package:common_project/views/page1/page1_view.dart';
 import 'package:common_project/views/search/search_view.dart';
 import 'package:common_project/widget/advertisement_widget.dart';
@@ -224,6 +225,16 @@ class _MainViewState extends State<MainView> {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const Page1View()),
+              );
+            },
+          ),
+          /// 페이지 이동2
+          InkWell(
+            child: const Text('사진 페이지'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const EmergencyGuideMapManageView()),
               );
             },
           ),

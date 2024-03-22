@@ -62,7 +62,8 @@ class _CustomCalendarWidgetState extends State<CustomCalendarWidget> {
       child: Column(
         children: [
           Container(
-            height: 20,
+            height: 10,
+            color: Colors.transparent,
           ),
           Expanded(
             child: SfCalendar(
@@ -73,28 +74,33 @@ class _CustomCalendarWidgetState extends State<CustomCalendarWidget> {
               showNavigationArrow: true,
               dataSource: MeetingDataSource(getAppointments()),
               viewHeaderStyle: const ViewHeaderStyle(
-                  backgroundColor: Colors.grey,
-                  dayTextStyle: TextStyle(
-                      fontSize: 16,
-                      color: Color(0xffff5eaea),
-                      fontWeight: FontWeight.w500),
-                  dateTextStyle: TextStyle(
-                      fontSize: 22,
-                      color: Color(0xffff5eaea),
-                      letterSpacing: 2,
-                      fontWeight: FontWeight.w500)),
+                backgroundColor: Color.fromRGBO(180, 180, 180, 0.8),
+                dayTextStyle: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                ),
+              ),
               headerHeight: 50,
               headerDateFormat: 'yyyy년 MMM',
               headerStyle: const CalendarHeaderStyle(
                 textAlign: TextAlign.center,
+                backgroundColor: Colors.transparent,
                 textStyle: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                   color: Colors.black,
                 ),
               ),
+              todayHighlightColor: Colors.blueAccent,
+              backgroundColor: Colors.transparent,
+              selectionDecoration: BoxDecoration(
+                color: Colors.transparent,
+                border: Border.all(color: Colors.grey, width: 2),
+                shape: BoxShape.rectangle,
+              ),
               monthViewSettings: const MonthViewSettings(
                 appointmentDisplayMode: MonthAppointmentDisplayMode.appointment,
+                agendaViewHeight: 150.0,
                 showAgenda: true,
               ),
               onTap: (calendarTapDetails) {

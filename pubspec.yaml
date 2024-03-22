@@ -49,6 +49,8 @@ dependencies:
   table_calendar: ^3.0.9
   intl: ^0.18.1
   syncfusion_flutter_calendar: ^25.1.35-beta
+  photo_view: ^0.14.0
+  permission_handler: ^11.3.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

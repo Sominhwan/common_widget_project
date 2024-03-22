@@ -1,4 +1,5 @@
 import 'package:common_project/util/SharedPref.dart';
+import 'package:common_project/views/emergency_guide_map_manage/emergency_guide_map_manage_view.dart';
 import 'package:common_project/views/main/main_view.dart';
 import 'package:common_project/views/page1/page1_view.dart';
 import 'package:common_project/views/search/provider/search_provider.dart';
@@ -19,6 +20,7 @@ void main() async {
 final routes = {
   MainView.path: (context) => const MainView(), // 메인화면
   Page1View.path: (context) => const Page1View(), // 메인화면
+  EmergencyGuideMapManageView.path: (context) => const EmergencyGuideMapManageView(), // 메인화면
 };
 
 class MyApp extends StatelessWidget {
