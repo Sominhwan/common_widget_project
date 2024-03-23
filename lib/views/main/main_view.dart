@@ -65,7 +65,11 @@ class _MainViewState extends State<MainView> {
                       color: Colors.white,
                       borderRadius: BorderRadius.vertical(top: Radius.circular(15.0)),
                     ),
-                    child: const AdvertisementWidget(),
+                    child: AdvertisementWidget(
+                      onChanged: (bool value) {
+                        log(value.toString());
+                      },
+                    ),
                   );
                 },
               );

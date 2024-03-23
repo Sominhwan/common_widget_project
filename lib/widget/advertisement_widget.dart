@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AdvertisementWidget extends StatefulWidget {
+  final ValueChanged<bool> onChanged;
+
   const AdvertisementWidget({
     super.key,
+    required this.onChanged,
   });
 
   @override
@@ -42,6 +45,8 @@ class _AdvertisementWidgetState extends State<AdvertisementWidget> {
                             setState(() {
                               checkboxFlag = value!;
                             });
+                            Navigator.of(context).pop();
+                            widget.onChanged.call(true);
                           },
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(0),
@@ -65,6 +70,8 @@ class _AdvertisementWidgetState extends State<AdvertisementWidget> {
                     setState(() {
                       checkboxFlag = !checkboxFlag;
                     });
+                    Navigator.of(context).pop();
+                    widget.onChanged.call(true);
                   },
                 ),
                 const Spacer(),
