@@ -5,6 +5,7 @@ import 'dart:typed_data';
 import 'package:common_project/views/emergency_guide_map_manage/emergency_guide_map_manage_view.dart';
 import 'package:common_project/views/page1/page1_view.dart';
 import 'package:common_project/views/search/search_view.dart';
+import 'package:common_project/views/sign_up/sign_up_view.dart';
 import 'package:common_project/widget/advertisement_widget.dart';
 import 'package:common_project/widget/confirm_cancel_dialog_widget.dart';
 import 'package:common_project/widget/custom_calendar_widget.dart';
@@ -164,6 +165,7 @@ class _MainViewState extends State<MainView> {
               );
             },
           ),
+          /// 커스텀 달력 위젯
           InkWell(
             child: const Text('커스텀 달력 위젯'),
             onTap: () {
@@ -185,6 +187,7 @@ class _MainViewState extends State<MainView> {
               );
             },
           ),
+          /// 커스텀 달력(스케줄) 위젯
           InkWell(
             child: const Text('커스텀 달력(스케줄) 위젯'),
             onTap: () {
@@ -232,13 +235,23 @@ class _MainViewState extends State<MainView> {
               );
             },
           ),
-          /// 페이지 이동2
+          /// 사진 뷰어 페이지
           InkWell(
-            child: const Text('사진 페이지'),
+            child: const Text('사진 뷰어 페이지'),
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const EmergencyGuideMapManageView()),
+              );
+            },
+          ),
+          /// 회원 가입 페이지
+          InkWell(
+            child: const Text('회원가입 페이지'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SignUpView()),
               );
             },
           ),

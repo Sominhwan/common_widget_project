@@ -4,6 +4,7 @@ import 'package:common_project/views/main/main_view.dart';
 import 'package:common_project/views/main/provider/main_provider.dart';
 import 'package:common_project/views/page1/page1_view.dart';
 import 'package:common_project/views/search/provider/search_provider.dart';
+import 'package:common_project/views/sign_up/sign_up_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -21,7 +22,8 @@ void main() async {
 final routes = {
   MainView.path: (context) => const MainView(), // 메인화면
   Page1View.path: (context) => const Page1View(), // 메인화면
-  EmergencyGuideMapManageView.path: (context) => const EmergencyGuideMapManageView(), //
+  EmergencyGuideMapManageView.path: (context) => const EmergencyGuideMapManageView(), // 탭 페이지
+  SignUpView.path: (context) => const SignUpView(), // 회원가입 페이지
 };
 
 class MyApp extends StatelessWidget {
