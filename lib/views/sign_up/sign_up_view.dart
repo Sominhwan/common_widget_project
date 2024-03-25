@@ -1,12 +1,13 @@
 
 import 'dart:math';
+import 'package:common_project/views/sign_up/sign_up_info_view.dart';
 import 'package:flutter/material.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
-
   static String get className => 'SignUpView';
   static String get path => '/signUp';
+
 
   @override
   State<SignUpView> createState() => _SignUpViewState();
@@ -84,8 +85,8 @@ class _SignUpViewState extends State<SignUpView> {
                           return const BorderSide(color: Colors.grey, width: 1);
                         }),
                         visualDensity: VisualDensity.compact,
-                        checkColor: Colors.black,
-                        activeColor: Colors.white,
+                        checkColor: Colors.white,
+                        activeColor: Colors.blueAccent,
                       ),
                     ),
                     const Text('전체동의', style: TextStyle(fontWeight: FontWeight.w500,fontSize: 14),)
@@ -125,7 +126,10 @@ class _SignUpViewState extends State<SignUpView> {
           ),
         ),
         onTap: () {
-          print('터치');
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const SignUpInfoView()),
+          );
         },
       ) :
       InkWell(
@@ -161,8 +165,8 @@ class _SignUpViewState extends State<SignUpView> {
               return const BorderSide(color: Colors.grey, width: 1);
             }),
             visualDensity: VisualDensity.compact,
-            checkColor: Colors.black,
-            activeColor: Colors.white,
+            checkColor: Colors.white,
+            activeColor: Colors.blueAccent,
           ),
         ),
         Expanded(
