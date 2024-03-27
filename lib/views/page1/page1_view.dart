@@ -1,6 +1,7 @@
 
 import 'dart:developer';
 import 'dart:typed_data';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../widget/signature_widget.dart';
@@ -101,6 +102,7 @@ class EmergencyResponseSenarioWidget extends StatefulWidget {
 class _EmergencyResponseSenarioWidgetState extends State<EmergencyResponseSenarioWidget> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   GlobalKey<FormState> formKey2 = GlobalKey<FormState>();
+
   Uint8List? signature;
   Uint8List? signature2;
 
@@ -161,31 +163,52 @@ class _EmergencyResponseSenarioWidgetState extends State<EmergencyResponseSenari
                                 enabled: true,
                                 builder: (field) {
                                   final isValidSignature = field.value != null && field.value!.isNotEmpty;
-                                  return InputDecorator(
-                                    decoration: const InputDecoration(
-                                      contentPadding: EdgeInsets.zero,
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color.fromRGBO(220, 220, 220, 1),
-                                          width: 1.0,
+                                  return Stack(
+                                    alignment: Alignment.centerRight,
+                                    children: [
+                                      InputDecorator(
+                                        decoration: const InputDecoration(
+                                          contentPadding: EdgeInsets.all(8), // Adjust padding to give space for the button
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color.fromRGBO(220, 220, 220, 1),
+                                              width: 1.0,
+                                            ),
+                                          ),
+                                        ),
+                                        child: isValidSignature
+                                            ? SizedBox(
+                                          height: 100,
+                                          width: double.infinity,
+                                          child: Image.memory(
+                                            field.value!,
+                                            fit: BoxFit.contain,
+                                          ),
+                                        )
+                                            : const SizedBox(
+                                          height: 100,
+                                          child: Center(
+                                            child: Text('서명 추가', style: TextStyle(color: Color.fromRGBO(220, 220, 220, 1))),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    child: isValidSignature // 검사를 통과한 경우 이미지를 표시
-                                        ? SizedBox(
-                                      height: 100,
-                                      width: double.maxFinite,
-                                      child: Image.memory(
-                                        field.value!,
-                                        fit: BoxFit.contain,
-                                      ),
-                                    )
-                                        : const SizedBox(
-                                      height: 100,
-                                      child: Center(
-                                        child: Text('서명 추가', style: TextStyle(color: Color.fromRGBO(220, 220, 220, 1))), // 대체 텍스트를 표시
-                                      ),
-                                    ),
+                                      if(isValidSignature)
+                                        Align(
+                                          alignment: Alignment.centerRight,
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(right: 5),
+                                            child: InkWell(
+                                              onTap: () {
+                                                setState(() {
+                                                  signature = null;
+                                                  formKey = GlobalKey<FormState>();
+                                                });
+                                              },
+                                              child: const Icon(Icons.clear, size: 18),
+                                            ),
+                                          ),
+                                        ),
+                                    ],
                                   );
                                 },
                               ),

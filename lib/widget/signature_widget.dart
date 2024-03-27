@@ -46,7 +46,6 @@ class _SignatureWidgetState extends State<SignatureWidget> {
               width: decoded.width,
               interpolation: img.Interpolation.cubic);
           Uint8List signature = Uint8List.fromList(img.encodePng(resized));
-
           Navigator.of(context).pop(signature);
         }
       });
