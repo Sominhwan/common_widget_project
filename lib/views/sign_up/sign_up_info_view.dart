@@ -310,11 +310,12 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                                     child: InkWell(
                                       child: Container(
                                         width: 90,
-                                        decoration: BoxDecoration(
-                                          border: Border.all(
-                                            color: const Color.fromRGBO(203, 203, 203, 1), // Set border color
-                                            width: 1.0, // Set border width
-                                          ),
+                                        decoration: const BoxDecoration(
+                                          border: null,
+                                          // border: Border.all(
+                                          //   color: const Color.fromRGBO(203, 203, 203, 1), // Set border color
+                                          //   width: 1.0, // Set border width
+                                          // ),
                                           color: Colors.blueAccent
                                         ),
                                         alignment: Alignment.center,
@@ -444,7 +445,18 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                           onSaved: (value) {
 
                           },
-                          validator: (value) => value == '' ? '필수 입력 항목입니다.' : null,
+                          validator: (value) {
+                            // 비밀번호 필드가 비어있지 않은지 먼저 확인
+                            if (value == null || value.isEmpty) {
+                              return '필수 입력 항목입니다.';
+                            }
+                            // 비밀번호와 비밀번호 재입력이 동일한지 확인
+                            if (_pwController.text != _rePwController.text) {
+                              return '비밀번호가 일치하지 않습니다.';
+                            }
+                            // 위의 조건에 해당하지 않는 경우, 유효한 입력으로 간주
+                            return null;
+                          },
                           obscureText: _obscureText2,
                           focusNode: _rePasswordFocus,
                           onFieldSubmitted: (term) {
@@ -475,7 +487,7 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                                       InkWell(
                                         splashColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
-                                        child: const Icon(Icons.cancel, color: Colors.grey,),
+                                        child: const Icon(Icons.cancel, color: Colors.grey),
                                         onTap: () {
                                           _rePwController.clear();
                                           setState(() {});

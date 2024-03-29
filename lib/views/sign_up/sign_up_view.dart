@@ -126,6 +126,12 @@ class _SignUpViewState extends State<SignUpView> {
           ),
         ),
         onTap: () {
+          setState(() {
+            allAgreed = false;
+            termsAgreed = false;
+            personalInfoAgreed = false;
+            thirdPartyInfoAgreed = false;
+          });
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => const SignUpInfoView()),
