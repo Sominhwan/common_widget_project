@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:common_project/views/emergency_guide_map_manage/emergency_guide_map_manage_view.dart';
 import 'package:common_project/views/page1/page1_view.dart';
+import 'package:common_project/views/safety_inspection_manage/safety_inspection_manage_detail_view.dart';
 import 'package:common_project/views/search/search_view.dart';
 import 'package:common_project/views/sign_up/sign_up_view.dart';
 import 'package:common_project/widget/advertisement_widget.dart';
@@ -252,6 +253,16 @@ class _MainViewState extends State<MainView> {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const SignUpView()),
+              );
+            },
+          ),
+          /// 설문조사 페이지
+          InkWell(
+            child: const Text('설문조사 페이지'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SafetyInspectionManageDetailView()),
               );
             },
           ),
