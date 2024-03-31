@@ -79,8 +79,32 @@ class _SafetyInspectionManageDetailViewState extends State<SafetyInspectionManag
               labelColor: Colors.black,
               overlayColor: const MaterialStatePropertyAll(Colors.transparent),
               tabs: const [
-                Tab(child: Text('비상대응 시나리오', style: TextStyle(fontSize: 14))),
-                Tab(child: Text('비상훈련 실시 보고서', style: TextStyle(fontSize: 14))),
+                Tab(
+                  child: Center(
+                    child: Text(
+                      '일일점검\n2024.03.20',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 14,
+                        height: 1.3,
+                      ),
+                    ),
+                  ),
+                ),
+                Tab(
+                  child: Center(
+                    child: Text(
+                      '순회점검\n김철수(현장 안전관리자)',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 14,
+                        height: 1.3,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
@@ -123,7 +147,7 @@ class EmergencyResponseScenarioWidget extends StatefulWidget {
   State<EmergencyResponseScenarioWidget> createState() => _EmergencyResponseScenarioWidgetState();
 }
 
-class _EmergencyResponseScenarioWidgetState extends State<EmergencyResponseScenarioWidget> {
+class _EmergencyResponseScenarioWidgetState extends State<EmergencyResponseScenarioWidget> with AutomaticKeepAliveClientMixin {
   final List<String> surveyQuestions = [
     '보호구는 규격에 맞는 것을 사용하고 교육에 재질 사용하고 있는가?',
     '유해물들에 노출되지 않게 작업계획이 수립되고 작업전 안전교육이 되고 있는가?',
@@ -136,6 +160,9 @@ class _EmergencyResponseScenarioWidgetState extends State<EmergencyResponseScena
 
   // To track the state of checkboxes
   List<bool> checkBoxValues = [];
+  // 탭시 데이터 유지
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   void initState() {
@@ -146,36 +173,65 @@ class _EmergencyResponseScenarioWidgetState extends State<EmergencyResponseScena
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     return SingleChildScrollView(
       child: Column(
         children: [
-          InkWell(
-            onTap: () {
-              for (int i = 0; i < checkBoxValues.length; i++) {
-                print('항목 ${i + 1}: ${checkBoxValues[i] ? "점검 완료" : "점검 안됨"}');
-              }
-            },
-            child: const Text('점검 버튼'),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                alignment: Alignment.center, // 텍스트를 컨테이너 중앙에 배치
+                height: 30, // 텍스트의 높이를 지정
+                child: const Text('근무시간 ', style: TextStyle(fontSize: 18)),
+              ),
+              Container(
+                color: Colors.black,
+                height: 20,
+                width: 1,
+              ),
+              Container(
+                alignment: Alignment.center, // 텍스트를 컨테이너 중앙에 배치
+                height: 30, // 텍스트의 높이를 지정
+                child: const Text(' 2:30분', style: TextStyle(fontSize: 18)),
+              ),
+              const Spacer(),
+              InkWell(
+                onTap: () {
+                  for (int i = 0; i < checkBoxValues.length; i++) {
+                    print('항목 ${i + 1}: ${checkBoxValues[i] ? "점검 완료" : "점검 안됨"}');
+                  }
+                },
+                child: const Text('점검 버튼'),
+              ),
+            ],
           ),
+          const SizedBox(height: 10),
           Table(
-            border: TableBorder.all(color: Colors.black),
+            border: TableBorder.all(color: Colors.transparent),
             columnWidths: const {
-              0: FixedColumnWidth(30), // For '번호' column
-              1: FlexColumnWidth(10), // For '안전점검 항목' column
-              2: FlexColumnWidth(1), // For '점검' column
+              0: FixedColumnWidth(45), // For '번호' column
+              1: FlexColumnWidth(12), // For '안전점검 항목' column
+              2: FlexColumnWidth(2), // For '점검' column
             },
             children: [
               // 헤더 행
               const TableRow(
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(30, 150, 255, 1),
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10))
+                ),
                 children: [
                   TableCell(
                     verticalAlignment: TableCellVerticalAlignment.middle,
                     child: Center(
                       child: Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: EdgeInsets.only(left: 8, right: 8, top: 15, bottom: 15),
                         child: Text(
                           '번호',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
                         ),
                       ),
                     ),
@@ -184,10 +240,10 @@ class _EmergencyResponseScenarioWidgetState extends State<EmergencyResponseScena
                     verticalAlignment: TableCellVerticalAlignment.middle,
                     child: Center(
                       child: Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: EdgeInsets.only(left: 8, right: 8, top: 15, bottom: 15),
                         child: Text(
                           '안전점검 항목',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
                         ),
                       ),
                     ),
@@ -196,10 +252,10 @@ class _EmergencyResponseScenarioWidgetState extends State<EmergencyResponseScena
                     verticalAlignment: TableCellVerticalAlignment.middle,
                     child: Center(
                       child: Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: EdgeInsets.only(left: 8, right: 8, top: 15, bottom: 15),
                         child: Text(
                           '점검',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
                         ),
                       ),
                     ),
@@ -211,6 +267,14 @@ class _EmergencyResponseScenarioWidgetState extends State<EmergencyResponseScena
                 surveyQuestions.length,
                     (index) =>
                     TableRow(
+                      decoration: BoxDecoration(
+                        color: const Color.fromRGBO(203, 203, 203, 0.2),
+                        border: const Border(bottom: BorderSide(color: Color.fromRGBO(203, 203, 203, 0.0), width: 1)),
+                        borderRadius: 
+                        index == 6 ?
+                        const BorderRadius.only(bottomRight: Radius.circular(10.0), bottomLeft: Radius.circular(10.0))
+                        : null
+                      ),
                       children: [
                         TableCell(
                           verticalAlignment: TableCellVerticalAlignment.middle,
@@ -236,6 +300,10 @@ class _EmergencyResponseScenarioWidgetState extends State<EmergencyResponseScena
                           verticalAlignment: TableCellVerticalAlignment.middle,
                           child: Center(
                             child: Checkbox(
+                              activeColor: Colors.grey,
+                              visualDensity: VisualDensity.compact,
+                              overlayColor: MaterialStateProperty.all(Colors.transparent),
+                              side: const BorderSide(color: Colors.grey),
                               value: checkBoxValues[index],
                               onChanged: (bool? value) {
                                 setState(() {
@@ -264,11 +332,14 @@ class EmergencyResponseResultWidget extends StatefulWidget {
   State<EmergencyResponseResultWidget> createState() => _EmergencyResponseResultWidgetState();
 }
 
-class _EmergencyResponseResultWidgetState extends State<EmergencyResponseResultWidget> {
-
+class _EmergencyResponseResultWidgetState extends State<EmergencyResponseResultWidget> with AutomaticKeepAliveClientMixin{
+  // 탭시 데이터 유지
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
 
     return Consumer(
         builder: (context, provider, child) {
