@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 
 class SafetyInspectionManageDetailView extends StatefulWidget {
@@ -13,7 +12,6 @@ class SafetyInspectionManageDetailView extends StatefulWidget {
 class _SafetyInspectionManageDetailViewState extends State<SafetyInspectionManageDetailView> with SingleTickerProviderStateMixin{
   // TabController 추가
   late TabController _tabController;
-
   // 스켈레톤 로딩 위젯
   Widget skeletonLoader() {
     return Expanded(
@@ -122,14 +120,7 @@ class _SafetyInspectionManageDetailViewState extends State<SafetyInspectionManag
                     child: Center(child: EmergencyResponseScenarioWidget()),
                   ),
                 ),
-                SingleChildScrollView(
-                  // key: PageStorageKey<String>('emergencyResponseResultWidget'),
-                  scrollDirection: Axis.vertical,
-                  child: Padding(
-                    padding: EdgeInsets.all(20.0),
-                    child: Center(child: EmergencyResponseResultWidget()),
-                  ),
-                ),
+                EmergencyResponseResultWidget(),
               ],
             ),
           )
@@ -209,6 +200,7 @@ class _EmergencyResponseScenarioWidgetState extends State<EmergencyResponseScena
             ],
           ),
           const SizedBox(height: 10),
+          surveyQuestions.isNotEmpty ?
           Table(
             border: TableBorder.all(color: Colors.transparent),
             columnWidths: const {
@@ -263,15 +255,16 @@ class _EmergencyResponseScenarioWidgetState extends State<EmergencyResponseScena
                 ],
               ),
               // Data Rows
-              ...List<TableRow>.generate(
+              ... List<TableRow>.generate(
                 surveyQuestions.length,
-                    (index) =>
-                    TableRow(
-                      decoration: BoxDecoration(
-                        color: const Color.fromRGBO(203, 203, 203, 0.2),
+                    (index) => TableRow(
+                  decoration: BoxDecoration(
+                      color: checkBoxValues[index]
+                          ? const Color.fromRGBO(203, 203, 203, 0.4) // 체크된 행의 색상 변경
+                          : const Color.fromRGBO(203, 203, 203, 0.2), // 기본 배경색
                         border: const Border(bottom: BorderSide(color: Color.fromRGBO(203, 203, 203, 0.0), width: 1)),
                         borderRadius: 
-                        index == 6 ?
+                        index == surveyQuestions.length - 1 ?
                         const BorderRadius.only(bottomRight: Radius.circular(10.0), bottomLeft: Radius.circular(10.0))
                         : null
                       ),
@@ -317,7 +310,7 @@ class _EmergencyResponseScenarioWidgetState extends State<EmergencyResponseScena
                     ),
               ),
             ],
-          ),
+          ) : const SizedBox.shrink(),
         ],
       ),
     );
@@ -332,24 +325,88 @@ class EmergencyResponseResultWidget extends StatefulWidget {
   State<EmergencyResponseResultWidget> createState() => _EmergencyResponseResultWidgetState();
 }
 
-class _EmergencyResponseResultWidgetState extends State<EmergencyResponseResultWidget> with AutomaticKeepAliveClientMixin{
-  // 탭시 데이터 유지
+class _EmergencyResponseResultWidgetState extends State<EmergencyResponseResultWidget> with AutomaticKeepAliveClientMixin {
+  final ScrollController _scrollController = ScrollController();
+
+  final List<String> _initialData = [
+    "첫 번째 섹션 설명입니다.",
+    "두 번째 섹션 설명입니다.",
+    "세 번째 섹션 설명입니다.",
+  ];
+
+  final List<Widget> _sections = [];
+
   @override
   bool get wantKeepAlive => true;
 
   @override
-  Widget build(BuildContext context) {
-    super.build(context);
+  void initState() {
+    super.initState();
+    _populateInitialSections();
+  }
 
-    return Consumer(
-        builder: (context, provider, child) {
-          return const Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+  void _populateInitialSections() {
+    setState(() {
+      _sections.addAll(_initialData.map((description) => _createSectionWidget(description)).toList());
+    });
+  }
 
-            ],
-          );
-        }
+  Widget _createSectionWidget(String description) {
+    return Column(
+      children: [
+        Container(
+          height: 100,
+          width: double.maxFinite,
+          color: Colors.grey.shade200,
+          child: Text(description),
+        ),
+        const SizedBox(height: 20)
+      ],
     );
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    super.build(context); // AutomaticKeepAliveClientMixin 사용시 필요
+    return SingleChildScrollView(
+      controller: _scrollController,
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              if (_sections.isNotEmpty) // 리스트가 비어있지 않으면 _sections 표시
+                ..._sections,
+              if (_sections.isEmpty)
+                const Text('데이터가 없습니다.'),
+                ElevatedButton(
+                  onPressed: _addNewSection,
+                  child: const Text('Add Section'),
+                ),
+            ],
+        ),
+      ),
+    );
+  }
+
+  void _addNewSection() {
+    // Add a new section widget to the list.
+    setState(() {
+      _sections.add(_createSectionWidget("새로 추가된 섹션 설명입니다. ${_sections.length + 1}"));
+    });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _scrollController.animateTo(
+        _scrollController.position.maxScrollExtent,
+        duration: const Duration(milliseconds: 250),
+        curve: Curves.easeOut,
+      );
+    });
   }
 }
