@@ -266,6 +266,35 @@ class _MainViewState extends State<MainView> {
               );
             },
           ),
+          /// select box
+          InkWell(
+            child: const Text('선택 박스'),
+            onTap: () async {
+              // 위치에 따라 메뉴 표시
+              final value = await showMenu(
+                context: context,
+                surfaceTintColor: Colors.white,
+                shape: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(5),
+                  borderSide: const BorderSide(color: Colors.transparent)
+                ),
+                items: [
+                  const PopupMenuItem(
+                    value: 'delete',
+                    height: 35,
+                    child: Text('삭제하기'),
+                  ),
+                  const PopupMenuItem(
+                    value: 'cancel',
+                    height: 35,
+                    child: Text('취소'),
+                  ),
+                ],
+                elevation: 5.0,
+                position: const RelativeRect.fromLTRB(10, 0, 0, 0),
+              );
+            },
+          )
         ],
       ),
     );
