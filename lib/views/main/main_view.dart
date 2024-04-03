@@ -17,6 +17,9 @@ import 'package:common_project/widget/select_item_widget.dart';
 import 'package:common_project/widget/signature_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../../widget/ifile_manage_controller.dart';
+import '../../widget/image_file_upload_widget.dart';
+
 class MainView extends StatefulWidget {
   const MainView({super.key});
 
@@ -45,6 +48,12 @@ class _MainViewState extends State<MainView> {
   };
   /// 달력 초기값 셋팅
   DateTime selectedDt = DateTime.now();
+  /// 파일 컨트롤러
+  IFileManageController iFileManageController = IFileManageController(
+      clntId: 'IGNS',
+      targetType: '00011',
+      targetId: ''
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -294,9 +303,18 @@ class _MainViewState extends State<MainView> {
                 position: const RelativeRect.fromLTRB(10, 0, 0, 0),
               );
             },
-          )
+          ),
+          /// 사진 위젯 커스텀
+          ImageFileUploadWidget(iFileManageController: iFileManageController),
+          InkWell(
+            child: const Text('사진 값 보기'),
+            onTap: () {
+              print(iFileManageController.addedList.first.filename);
+            },
+          ),
         ],
       ),
     );
   }
 }
+
