@@ -52,7 +52,7 @@ class _CustomerQAWriteViewState extends State<CustomerQAWriteView> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          /// 버그 리포트 제목
+                          /// 고객지원 제목
                           const Text('제목', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500)),
                           const SizedBox(height: 5),
                           Row(
