@@ -14,7 +14,6 @@ class CustomerQAWriteView extends StatefulWidget {
 class _CustomerQAWriteViewState extends State<CustomerQAWriteView> {
   late final formKey = GlobalKey<FormState>();
 
-
   @override
   void initState() {
     super.initState();
