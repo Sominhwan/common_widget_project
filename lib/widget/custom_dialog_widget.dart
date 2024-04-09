@@ -14,7 +14,6 @@ class _CustomDialogWidgetState extends State<CustomDialogWidget> {
     final deviceSize = MediaQuery.of(context).size;
 
     return Dialog( // Dialog 위젯을 사용하여 다이얼로그의 크기와 모양을 조절
-      //insetPadding: EdgeInsets.all(30), // 다이얼로그와 화면 가장자리 사이의 패딩
       backgroundColor: Colors.white,
       shape: RoundedRectangleBorder( // 모서리를 둥글게 처리합니다.
         borderRadius: BorderRadius.circular(20), // 모서리의 둥근 정도 설정
