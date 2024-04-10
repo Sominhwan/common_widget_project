@@ -15,7 +15,6 @@ void main() async {
   await Future.wait([
     SharedPref.init()
   ]);
-
   runApp(const MyApp());
 }
 
