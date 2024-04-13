@@ -17,11 +17,10 @@ class _SignUpViewState extends State<SignUpView> {
   bool allAgreed = false;
   bool termsAgreed = false;
   bool personalInfoAgreed = false;
-  bool thirdPartyInfoAgreed = false;
 
   void _updateAllAgreed() {
     setState(() {
-      if (termsAgreed && personalInfoAgreed && thirdPartyInfoAgreed) {
+      if (termsAgreed && personalInfoAgreed) {
         allAgreed = true;
       } else {
         allAgreed = false;
@@ -37,9 +36,6 @@ class _SignUpViewState extends State<SignUpView> {
           break;
         case 'personalInfo':
           personalInfoAgreed = newValue;
-          break;
-        case 'thirdPartyInfo':
-          thirdPartyInfoAgreed = newValue;
           break;
         default:
           break;
@@ -75,7 +71,7 @@ class _SignUpViewState extends State<SignUpView> {
                         onChanged: (value) {
                           setState(() {
                             allAgreed = value!;
-                            termsAgreed = personalInfoAgreed = thirdPartyInfoAgreed = allAgreed;
+                            termsAgreed = personalInfoAgreed = allAgreed;
                           });
                         },
                         shape: RoundedRectangleBorder(
@@ -104,8 +100,7 @@ class _SignUpViewState extends State<SignUpView> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       _buildAgreementCheckbox('[필수] ', '서비스 이용약관', termsAgreed, 'terms'),
-                      _buildAgreementCheckbox('[필수] ', '개인정보 수집 및 이용에 대한 동의', personalInfoAgreed, 'personalInfo'),
-                      _buildAgreementCheckbox('[선택] ', '제 3 자 정보 제공 동의', thirdPartyInfoAgreed, 'thirdPartyInfo'),
+                      _buildAgreementCheckbox('[필수] ', '개인정보 수집 및 이용에 대한 동의', personalInfoAgreed, 'personalInfo')
                     ],
                   ),
                 ),
@@ -130,7 +125,6 @@ class _SignUpViewState extends State<SignUpView> {
             allAgreed = false;
             termsAgreed = false;
             personalInfoAgreed = false;
-            thirdPartyInfoAgreed = false;
           });
           Navigator.push(
             context,
@@ -153,7 +147,7 @@ class _SignUpViewState extends State<SignUpView> {
   }
 
   Widget _buildAgreementCheckbox(String prefix, String text, bool isChecked, String type) {
-    Color prefixColor = type == 'thirdPartyInfo' ? const Color.fromRGBO(120, 120, 120, 1) : Colors.redAccent;
+    Color prefixColor = Colors.redAccent;
 
     return Row(
       children: [

@@ -21,7 +21,6 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
   final TextEditingController _pwController = TextEditingController();
   final TextEditingController _rePwController = TextEditingController();
   final TextEditingController _phoneNumController = TextEditingController();
-
   // FocusNode 인스턴스 생성
   final FocusNode _nameFocus = FocusNode();
   final FocusNode _emailFocus = FocusNode();
@@ -50,7 +49,6 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
         _rePwController.text.isNotEmpty &&
         _phoneNumController.text.isNotEmpty;
 
-    // 상태 업데이트
     setState(() {
       _isNextButtonEnabled = allFieldsFilled;
     });
@@ -70,7 +68,6 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
     });
     _idController.addListener(() {
       _updateNextButtonState();
-      // If the user starts editing the ID again, indicate that we need to re-check for duplicates.
       if (!_isDuplicateCheckRequired && _idController.text.isNotEmpty) {
         setState(() {
           _isDuplicateCheckRequired = true;
@@ -93,14 +90,6 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
 
   @override
   void dispose() {
-    // 위젯이 dispose될 때 리스너 제거 및 컨트롤러 해제
-    // _nameController.dispose();
-    // _pwController.dispose();
-    // _idController.dispose();
-    // _pwController.dispose();
-    // _rePwController.dispose();
-    // _phoneNumController.dispose();
-
     _nameFocus.dispose();
     _emailFocus.dispose();
     _idFocus.dispose();
@@ -134,7 +123,7 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                           crossAxisAlignment: CrossAxisAlignment.baseline,
                           textBaseline: TextBaseline.alphabetic, // Align based on text baseline
                           children: [
-                            Text('이름', style: TextStyle(color: Colors.black, fontSize: 14)),
+                            Text('성명', style: TextStyle(color: Colors.black, fontSize: 14)),
                             Baseline(
                               baselineType: TextBaseline.alphabetic,
                               baseline: BorderSide.strokeAlignCenter,
@@ -619,7 +608,7 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                 height: 50,
                 color: Colors.blueAccent,
                 child: const Center(
-                    child: Text('다음', style: TextStyle(color: Colors.white, fontSize: 18))
+                    child: Text('회원가입', style: TextStyle(color: Colors.white, fontSize: 18))
                 ),
               )
           ) :
@@ -630,7 +619,7 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                 height: 50,
                 color: const Color.fromRGBO(220, 220, 220, 1),
                 child: const Center(
-                    child: Text('다음', style: TextStyle(color: Colors.white, fontSize: 18))
+                    child: Text('회원가입', style: TextStyle(color: Colors.white, fontSize: 18))
                 ),
               )
           ),
