@@ -5,16 +5,6 @@ import 'package:flutter/cupertino.dart';
 
 class SearchProvider extends ChangeNotifier {
   final Set<int> _readAutoSaveSet = {};
-
-  // void loadAutoSaveSet() {
-  //   if (SharedPref.getFromJson('User_${UserInfo().userCd}/AutoSaveSet')
-  //   case List list) {
-  //     _readAutoSaveSet = list.cast<String>().toSet();
-  //   } else {
-  //     _readAutoSaveSet = {};
-  //   }
-  // }
-
   /// 메뉴 리스트 가져오기
   final List<MenuAuthInfoModel> _menuAuthInfoList = [];
   List<MenuAuthInfoModel> get menuAuthInfoList => _menuAuthInfoList;
