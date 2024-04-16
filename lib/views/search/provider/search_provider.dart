@@ -9,7 +9,6 @@ class SearchProvider extends ChangeNotifier {
   final List<MenuAuthInfoModel> _menuAuthInfoList = [];
   List<MenuAuthInfoModel> get menuAuthInfoList => _menuAuthInfoList;
 
-
   /// 자동 저장 기능
   void saveAutoSaveSet(String key, String value) {
     SharedPref.setToJson(
