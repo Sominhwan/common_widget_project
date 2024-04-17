@@ -12,7 +12,6 @@ class TermsConditionsView extends StatefulWidget {
 }
 
 class _TermsConditionsViewState extends State<TermsConditionsView> {
-
   @override
   void initState() {
     super.initState();

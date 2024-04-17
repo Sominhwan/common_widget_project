@@ -33,9 +33,7 @@ class MainView extends StatefulWidget {
 class _MainViewState extends State<MainView> {
   /// 서명 위젯 변수
   Uint8List? signature = Uint8List.fromList([
-    // 간단한 예시 데이터입니다. 실제 PNG 데이터를 사용해야 합니다.
     0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A,
-    // 이 부분에 PNG 파일의 나머지 데이터가 들어가야 합니다.
   ]);
   Uint8List? saveSignatureValue;
   /// 선택 위젯 변수
