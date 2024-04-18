@@ -57,7 +57,6 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
   @override
   void initState() {
     super.initState();
-    // 리스너 추가: 사용자가 텍스트 필드에 입력할 때마다 UI 업데이트
     _nameController.addListener(() {
       _updateNextButtonState();
       setState(() {});
