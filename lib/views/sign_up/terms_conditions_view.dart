@@ -16,6 +16,7 @@ class _TermsConditionsViewState extends State<TermsConditionsView> {
   void initState() {
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

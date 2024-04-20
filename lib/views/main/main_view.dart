@@ -185,11 +185,9 @@ class _MainViewState extends State<MainView> {
                     minDt: DateTime(2020), // Minimum date as placeholder
                     maxDt: DateTime(2025), // Maximum date as placeholder
                     onChanged: (DateTime newDate) {
-                      // Handle date change. Replace this with your logic.
                       print(newDate);
                     },
                     event: events,
-                    // Assuming 'event' parameter is optional and not required for demonstration
                   );
                 },
               );
@@ -204,7 +202,6 @@ class _MainViewState extends State<MainView> {
                 builder: (BuildContext context) {
                   return CustomCalendarWidget(
                     onChanged: (DateTime newDate) {
-                      // Handle date change. Replace this with your logic.
                       print(newDate);
                       setState(() {
                         selectedDt = newDate;
