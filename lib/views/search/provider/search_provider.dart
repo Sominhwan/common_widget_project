@@ -34,10 +34,8 @@ class SearchProvider extends ChangeNotifier {
   }
 
   void onRead(String key, String value) {
-    // _readAutoSaveSet.add(seq);
     saveAutoSaveSet(key, value);
     notifyListeners();
-    // SharedPref.init();
   }
 
   void onInit() {
