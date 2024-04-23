@@ -174,7 +174,7 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                         const SizedBox(height: 20),
                         const Row(
                           crossAxisAlignment: CrossAxisAlignment.baseline,
-                          textBaseline: TextBaseline.alphabetic, // Align based on text baseline
+                          textBaseline: TextBaseline.alphabetic,
                           children: [
                             Text('이메일', style: TextStyle(color: Colors.black, fontSize: 14)),
                             Baseline(
@@ -228,7 +228,7 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                         const SizedBox(height: 20),
                         const Row(
                           crossAxisAlignment: CrossAxisAlignment.baseline,
-                          textBaseline: TextBaseline.alphabetic, // Align based on text baseline
+                          textBaseline: TextBaseline.alphabetic,
                           children: [
                             Text('아이디', style: TextStyle(color: Colors.black, fontSize: 14)),
                             Baseline(
