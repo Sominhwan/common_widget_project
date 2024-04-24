@@ -17,11 +17,6 @@ class _EmergencyGuideMapManageViewState extends State<EmergencyGuideMapManageVie
   final PageController _pageController = PageController();
   int _currentIndex = 0;
 
-  // Future<Uint8List> loadImageFromAssets(String path) async {
-  //   final byteData = await rootBundle.load(path);
-  //   return byteData.buffer.asUint8List();
-  // }
-
   Future<List<Uint8List>> loadImagesFromAssets(List<String> paths) async {
     return Future.wait(paths.map((path) async {
       final byteData = await rootBundle.load(path);
@@ -33,7 +28,6 @@ class _EmergencyGuideMapManageViewState extends State<EmergencyGuideMapManageVie
   @override
   void initState() {
     super.initState();
-    // _future = loadImageFromAssets('assets/images/image.png');
     _future = loadImagesFromAssets([
       'assets/images/image.png',
       'assets/images/image2.png',
@@ -79,7 +73,6 @@ class _EmergencyGuideMapManageViewState extends State<EmergencyGuideMapManageVie
                               color: Colors.transparent,
                             ),
                             loadingBuilder: (context, event) => Container(),
-                            // maxScale: PhotoViewComputedScale.covered * 5, // 최대 200% 크기
                             initialScale: PhotoViewComputedScale.contained,
                           );
                         },
