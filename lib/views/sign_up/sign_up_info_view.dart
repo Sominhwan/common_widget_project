@@ -285,11 +285,10 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                                     if (value == null || value.isEmpty) {
                                       return '필수 입력 항목입니다.';
                                     } else if (_isDuplicateCheckRequired) {
-                                      // 중복 확인이 필요한 상태에서 중복 확인 버튼을 클릭하지 않았을 경우 메시지 출력
                                       log('중복확인');
                                       return '아이디 중복 확인이 필요합니다.';
                                     }
-                                    return null; // 위의 조건에 해당하지 않는 경우, 유효한 입력으로 간주
+                                    return null;
                                   },
                                 ),
                               ),
@@ -303,10 +302,6 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                                         width: 90,
                                         decoration: const BoxDecoration(
                                           border: null,
-                                          // border: Border.all(
-                                          //   color: const Color.fromRGBO(203, 203, 203, 1), // Set border color
-                                          //   width: 1.0, // Set border width
-                                          // ),
                                           color: Colors.blueAccent
                                         ),
                                         alignment: Alignment.center,
@@ -316,7 +311,6 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                                         setState(() {
                                           _isDuplicateCheckRequired = false; // 상태 업데이트
                                           formKey.currentState!.validate();
-                                          // formKey.currentState!.validate();
                                         });
                                       },
                                     ),
