@@ -323,7 +323,7 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                         /// 비밀번호
                         const Row(
                           crossAxisAlignment: CrossAxisAlignment.baseline,
-                          textBaseline: TextBaseline.alphabetic, // Align based on text baseline
+                          textBaseline: TextBaseline.alphabetic,
                           children: [
                             Text('비밀번호', style: TextStyle(color: Colors.black, fontSize: 14)),
                             Baseline(
