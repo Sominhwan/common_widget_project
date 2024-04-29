@@ -276,7 +276,7 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                                     ) : null,
                                   ),
                                   enabled: true,
-                                  style: const TextStyle(color: Colors.black), // 텍스트 색상 변경
+                                  style: const TextStyle(color: Colors.black),
                                   maxLines: 1,
                                   onChanged: (value) {
 
@@ -309,7 +309,7 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                                       ),
                                       onTap: () {
                                         setState(() {
-                                          _isDuplicateCheckRequired = false; // 상태 업데이트
+                                          _isDuplicateCheckRequired = false;
                                           formKey.currentState!.validate();
                                         });
                                       },
