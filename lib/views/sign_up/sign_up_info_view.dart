@@ -346,7 +346,7 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                           obscureText: _obscureText,
                           focusNode: _passwordFocus,
                           onFieldSubmitted: (term) {
-                            _fieldFocusChange(context, _passwordFocus, _rePasswordFocus); // 다음 필드로 포커스 이동
+                            _fieldFocusChange(context, _passwordFocus, _rePasswordFocus);
                           },
                           decoration: InputDecoration(
                             border: const OutlineInputBorder(borderSide: BorderSide(color: Colors.transparent), borderRadius: BorderRadius.zero,), // 기본 테두리 색상
@@ -393,7 +393,7 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                                                 .transparent, // 클릭 영역을 명확히 하기 위해 투명한 배경 색상 추가
                                             padding: EdgeInsets.zero, // 여기서는 패딩을 제거
                                             child: const Icon(
-                                                Icons.clear), // Icon 크기를 직접 지정
+                                                Icons.clear),
                                           ),
                                         ),
                                       ],
@@ -405,12 +405,12 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                                           });
                                         },
                                         child: Container(
-                                          color: Colors.transparent, // 클릭 영역을 명확히 하기 위해
-                                          padding: EdgeInsets.zero, // 패딩 최소화
+                                          color: Colors.transparent,
+                                          padding: EdgeInsets.zero,
                                           child: Icon(_obscureText
                                               ? Icons.visibility_off
                                               : Icons
-                                              .visibility, color: Colors.grey, // Icon 크기 지정
+                                              .visibility, color: Colors.grey,
                                           ),
                                         ),
                                       ),
