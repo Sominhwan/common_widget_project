@@ -390,8 +390,8 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                                           },
                                           child: Container(
                                             color: Colors
-                                                .transparent, // 클릭 영역을 명확히 하기 위해 투명한 배경 색상 추가
-                                            padding: EdgeInsets.zero, // 여기서는 패딩을 제거
+                                                .transparent,
+                                            padding: EdgeInsets.zero,
                                             child: const Icon(
                                                 Icons.clear),
                                           ),
