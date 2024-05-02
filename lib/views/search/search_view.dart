@@ -122,8 +122,7 @@ class _SearchViewState extends State<SearchView> {
     if (textKeyValueMap.isNotEmpty && textKeyValueMap[0]['key'] != null) {
       autoSaveSeq = int.parse(textKeyValueMap[0]['key']!) + 1;
     } else {
-      // 'key' 값이 null인 경우 또는 리스트가 비어 있는 경우, autoSaveSeq를 기본값으로 설정합니다.
-      autoSaveSeq = 1; // 여기서 1은 예시 기본값입니다. 실제 상황에 맞는 적절한 기본값을 사용하세요.
+      autoSaveSeq = 1;
     }
     WidgetsBinding.instance.addPostFrameCallback((_) {
       // 텍스트 필드에 포커스를 주고 키보드를 엽니다.
