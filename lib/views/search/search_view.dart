@@ -125,7 +125,6 @@ class _SearchViewState extends State<SearchView> {
       autoSaveSeq = 1;
     }
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      // 텍스트 필드에 포커스를 주고 키보드를 엽니다.
       FocusScope.of(context).requestFocus(_focusNode);
     });
   }
