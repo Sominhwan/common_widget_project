@@ -177,14 +177,14 @@ class _SearchViewState extends State<SearchView> {
                   ),
                   prefixIconColor: MaterialStateColor.resolveWith((states) => states.contains(MaterialState.focused) ? Colors.grey : Colors.grey),
                   suffixIcon: Padding(
-                    padding: const EdgeInsets.only(right: 8.0), // 아이콘들 사이의 간격 조절
+                    padding: const EdgeInsets.only(right: 8.0),
                     child: Stack(
                       alignment: Alignment.centerRight,
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(right: 5.0),
                           child: Row(
-                            mainAxisSize: MainAxisSize.min, // Row의 크기를 자식들의 크기에 맞춤
+                            mainAxisSize: MainAxisSize.min,
                             children: [
                               if(searchCompIdFlag) ...[
                                 const SizedBox(width: 5),
