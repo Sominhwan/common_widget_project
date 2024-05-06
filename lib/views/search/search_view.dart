@@ -100,7 +100,6 @@ class _SearchViewState extends State<SearchView> {
   void initState() {
     super.initState();
     _searchController.addListener(_onSearchTextChanged);
-    // _viewController.onInit();
     _menuAuthList = _viewController.menuAuthInfoList;
     _searchMenuAuthList = _menuAuthList;
     // 자동저장 플래그
