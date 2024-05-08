@@ -24,7 +24,7 @@ class _SearchViewState extends State<SearchView> {
   final Color _textFieldColor = const Color.fromRGBO(230, 230, 230, 0.8);
   late bool searchCompIdFlag = false;
   // 자동 저장 flag
-  int autoSaveFlag = 1; // 비활성
+  int autoSaveFlag = 1;
   List<String> autoSaveTrue = ['ON'];
   List<String> autoSaveFalse = ['OFF'];
   int autoSaveSeq = 1;
