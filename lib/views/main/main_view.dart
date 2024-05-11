@@ -67,7 +67,7 @@ class _MainViewState extends State<MainView> {
               showModalBottomSheet<String>(
                 context: context,
                 isScrollControlled: true,
-                backgroundColor: Colors.transparent, // 배경색을 투명하게 설정하여 라운드 처리된 모서리가 보이도록 합니다.
+                backgroundColor: Colors.transparent,
                 builder: (BuildContext context) {
                   return Container(
                     decoration: const BoxDecoration(
