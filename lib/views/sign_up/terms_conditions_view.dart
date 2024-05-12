@@ -31,9 +31,7 @@ class _TermsConditionsViewState extends State<TermsConditionsView> {
         ),
       ),
       body: const Column(
-        children: [
-
-        ],
+        children: [],
       ),
     );
   }
