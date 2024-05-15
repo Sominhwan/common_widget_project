@@ -510,7 +510,7 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                                           child: Icon(_obscureText2
                                               ? Icons.visibility_off
                                               : Icons
-                                              .visibility, color: Colors.grey, // Icon 크기 지정
+                                              .visibility, color: Colors.grey,
                                           ),
                                         ),
                                       ),
@@ -524,7 +524,7 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                         const SizedBox(height: 20),
                         const Row(
                           crossAxisAlignment: CrossAxisAlignment.baseline,
-                          textBaseline: TextBaseline.alphabetic, // Align based on text baseline
+                          textBaseline: TextBaseline.alphabetic,
                           children: [
                             Text('휴대폰 번호', style: TextStyle(color: Colors.black, fontSize: 14)),
                             Baseline(
