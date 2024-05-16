@@ -581,16 +581,12 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
           _isNextButtonEnabled ?
           InkWell(
               onTap: () {
-                // Validate the form first.
                 bool isValid = formKey.currentState!.validate();
 
                 if (isValid && !_isDuplicateCheckRequired) {
-                  // Form is valid, and duplicate check has passed, proceed to save form or move to next step.
                   formKey.currentState!.save();
                   log('이상 없음');
-                  // Proceed with the next actions...
                 } else {
-                  // Optionally, handle the case where the form is valid but the duplicate check hasn't been performed.
                   if (!_isDuplicateCheckRequired) {
 
                   }
