@@ -10,10 +10,9 @@ class CustomDialogWidget extends StatefulWidget {
 class _CustomDialogWidgetState extends State<CustomDialogWidget> {
   @override
   Widget build(BuildContext context) {
-    // MediaQuery를 사용하여 디바이스의 크기를 얻습니다.
     final deviceSize = MediaQuery.of(context).size;
 
-    return Dialog( // Dialog 위젯을 사용하여 다이얼로그의 크기와 모양을 조절
+    return Dialog(
       backgroundColor: Colors.white,
       shape: RoundedRectangleBorder( // 모서리를 둥글게 처리합니다.
         borderRadius: BorderRadius.circular(20), // 모서리의 둥근 정도 설정
