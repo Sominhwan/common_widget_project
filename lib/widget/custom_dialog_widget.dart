@@ -14,8 +14,8 @@ class _CustomDialogWidgetState extends State<CustomDialogWidget> {
 
     return Dialog(
       backgroundColor: Colors.white,
-      shape: RoundedRectangleBorder( // 모서리를 둥글게 처리합니다.
-        borderRadius: BorderRadius.circular(20), // 모서리의 둥근 정도 설정
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
       ),
       child: SizedBox(
         width: deviceSize.width * 0.8,
