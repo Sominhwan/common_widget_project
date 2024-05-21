@@ -82,7 +82,6 @@ class _SearchViewState extends State<SearchView> {
             style: const TextStyle(color: Colors.blue, fontWeight: FontWeight.w300),
           )
       );
-      // 시작 위치 업데이트
       start = indexOfHighlight + query.length;
     }
     // 마지막 검색어 이후의 텍스트 부분
