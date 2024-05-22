@@ -505,8 +505,8 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                                           });
                                         },
                                         child: Container(
-                                          color: Colors.transparent, // 클릭 영역을 명확히 하기 위해
-                                          padding: EdgeInsets.zero, // 패딩 최소화
+                                          color: Colors.transparent,
+                                          padding: EdgeInsets.zero,
                                           child: Icon(_obscureText2
                                               ? Icons.visibility_off
                                               : Icons
