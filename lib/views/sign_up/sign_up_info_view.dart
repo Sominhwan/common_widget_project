@@ -440,13 +440,12 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                             if (_pwController.text != _rePwController.text) {
                               return '비밀번호가 일치하지 않습니다.';
                             }
-                            // 위의 조건에 해당하지 않는 경우, 유효한 입력으로 간주
                             return null;
                           },
                           obscureText: _obscureText2,
                           focusNode: _rePasswordFocus,
                           onFieldSubmitted: (term) {
-                            _fieldFocusChange(context, _rePasswordFocus, _phoneNumFocus); // 다음 필드로 포커스 이동
+                            _fieldFocusChange(context, _rePasswordFocus, _phoneNumFocus);
                           },
                           decoration: InputDecoration(
                             border: const OutlineInputBorder(borderSide: BorderSide(color: Colors.transparent), borderRadius: BorderRadius.zero,), // 기본 테두리 색상
