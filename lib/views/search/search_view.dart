@@ -236,9 +236,6 @@ class _SearchViewState extends State<SearchView> {
                                     if (menu.title?.toLowerCase() == _searchController.text.toLowerCase()) {
                                       Navigator.of(context).pushReplacementNamed(
                                         menu.path!,
-                                        // arguments: RouterParameters(
-                                        //   menu.path!,
-                                        // ),
                                       );
                                     }
                                   }
@@ -412,7 +409,6 @@ class _SearchViewState extends State<SearchView> {
                                                     padding: const EdgeInsets.only(right: 15), // 라벨과 삭제 아이콘 사이의 간격 조절
                                                     child: Text(textKeyValueMap[i]['value']!, style: const TextStyle(fontSize: 14)),
                                                   ),
-                                                  // deleteIcon을 여기서 사용하지 않음
                                                   onDeleted: null, // 필요 없으면 null 처리
                                                 ),
                                                 Positioned(
@@ -447,7 +443,6 @@ class _SearchViewState extends State<SearchView> {
                                       ),
                                     ),
                                   ]
-
                                 ]
                             ),
                           ),
