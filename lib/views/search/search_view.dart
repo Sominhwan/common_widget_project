@@ -451,8 +451,7 @@ class _SearchViewState extends State<SearchView> {
                     ),
                   ],
                 ),
-              )
-                  :
+              ) :
               Container(
                 decoration: BoxDecoration(
                   color: Colors.white, // 배경색
@@ -481,9 +480,6 @@ class _SearchViewState extends State<SearchView> {
                             onTap: () {
                               Navigator.of(context).pushReplacementNamed(
                                 _searchMenuAuthList[index].path!,
-                                // arguments: RouterParameters(
-                                //   _searchMenuAuthList[index].path!,
-                                // ),
                               );
                             },
                             child: Padding(
