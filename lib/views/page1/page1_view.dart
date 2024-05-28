@@ -34,7 +34,6 @@ class _Page1ViewState extends State<Page1View> with SingleTickerProviderStateMix
 
   @override
   Widget build(BuildContext context) {
-    // DefaultTabController로 전체를 감싼다
     return Scaffold(
       appBar: AppBar(
         title: const Text('탭 예제'),
@@ -47,9 +46,7 @@ class _Page1ViewState extends State<Page1View> with SingleTickerProviderStateMix
             padding: const EdgeInsets.all(0),
             child: TabBar(
               controller: _tabController,
-              // dividerColor: Colors.transparent,
               splashFactory: NoSplash.splashFactory,
-              // indicatorColor: Colors.transparent, // 하단 밑줄 색상
               indicatorColor: Colors.blueAccent,
               splashBorderRadius: BorderRadius.circular(40),
               unselectedLabelColor: Colors.grey,
