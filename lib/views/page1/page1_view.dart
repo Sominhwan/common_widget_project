@@ -150,7 +150,7 @@ class _EmergencyResponseSenarioWidgetState extends State<EmergencyResponseSenari
                     children: [
                       TableCell(
                         child: Container(
-                          height: 55.0, // Adjust the height as needed
+                          height: 55.0,
                           color: Colors.white,
                           child: Center(
                             child: InkWell(
@@ -165,7 +165,7 @@ class _EmergencyResponseSenarioWidgetState extends State<EmergencyResponseSenari
                                     children: [
                                       InputDecorator(
                                         decoration: const InputDecoration(
-                                          contentPadding: EdgeInsets.all(8), // Adjust padding to give space for the button
+                                          contentPadding: EdgeInsets.all(8),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color.fromRGBO(220, 220, 220, 1),
@@ -238,7 +238,7 @@ class _EmergencyResponseSenarioWidgetState extends State<EmergencyResponseSenari
                       ),
                       TableCell(
                         child: Container(
-                          height: 55.0, // Adjust the height as needed
+                          height: 55.0,
                           color: Colors.white,
                           child: Center(
                             child: InkWell(
@@ -420,7 +420,7 @@ class _EmergencyResponseSenarioWidgetState extends State<EmergencyResponseSenari
                 TableRow(
                   children: [
                     const Padding(
-                      padding: EdgeInsets.only(right: 8), // Add some spacing between the text and the text field
+                      padding: EdgeInsets.only(right: 8),
                       child: Text('목표시간', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
                     ),
                     Padding(
