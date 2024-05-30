@@ -406,7 +406,7 @@ class _SearchViewState extends State<SearchView> {
                                               children: [
                                                 Chip(
                                                   label: Padding(
-                                                    padding: const EdgeInsets.only(right: 15), // 라벨과 삭제 아이콘 사이의 간격 조절
+                                                    padding: const EdgeInsets.only(right: 15),
                                                     child: Text(textKeyValueMap[i]['value']!, style: const TextStyle(fontSize: 14)),
                                                   ),
                                                   onDeleted: null, // 필요 없으면 null 처리

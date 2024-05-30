@@ -495,7 +495,6 @@ class _EmergencyResponseSenarioWidgetState extends State<EmergencyResponseSenari
           initialValue: '비고',
           maxLines: null,
           onSaved: (newValue) {
-            // Handle save
           },
           validator: (value) {
             return value != null && value.isEmpty ? '필수입력입니다.' : null;
