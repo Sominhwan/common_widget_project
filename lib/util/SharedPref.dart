@@ -12,7 +12,7 @@ class SharedPref {
 
   static String? loadKeyValue(String key) {
     String? value = instance.getString(key);
-    // 따옴표 제거 로직 추가
+
     value = value?.replaceAll('"', '');
     return value;
   }
