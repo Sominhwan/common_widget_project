@@ -19,10 +19,10 @@ void main() async {
 }
 
 final routes = {
-  MainView.path: (context) => const MainView(), // 메인화면
-  Page1View.path: (context) => const Page1View(), // 메인화면
-  EmergencyGuideMapManageView.path: (context) => const EmergencyGuideMapManageView(), // 탭 페이지
-  SignUpView.path: (context) => const SignUpView(), // 회원가입 페이지
+  MainView.path: (context) => const MainView(),
+  Page1View.path: (context) => const Page1View(),
+  EmergencyGuideMapManageView.path: (context) => const EmergencyGuideMapManageView(),
+  SignUpView.path: (context) => const SignUpView(),
 };
 
 class MyApp extends StatelessWidget {
