@@ -38,7 +38,6 @@ class _Page1ViewState extends State<Page1View> with SingleTickerProviderStateMix
       appBar: AppBar(
         title: const Text('탭 예제'),
       ),
-      // 본문에 Column을 사용하여 TabBar와 TabBarView를 배치
       body: Column(
         children: [
           // 탭바 배치
@@ -64,7 +63,7 @@ class _Page1ViewState extends State<Page1View> with SingleTickerProviderStateMix
           Expanded(
             child: TabBarView(
               controller: _tabController,
-              physics: const NeverScrollableScrollPhysics(), // 스와이프로 탭 내용 변경을 방지
+              physics: const NeverScrollableScrollPhysics(),
               children: const [
                 SingleChildScrollView(
                   scrollDirection: Axis.vertical,
@@ -258,7 +257,7 @@ class _EmergencyResponseSenarioWidgetState extends State<EmergencyResponseSenari
                                         ),
                                       ),
                                     ),
-                                    child: isValidSignature // 검사를 통과한 경우 이미지를 표시
+                                    child: isValidSignature
                                         ? SizedBox(
                                       height: 100,
                                       width: double.maxFinite,
