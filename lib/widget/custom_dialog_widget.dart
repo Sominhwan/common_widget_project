@@ -21,7 +21,7 @@ class _CustomDialogWidgetState extends State<CustomDialogWidget> {
         width: deviceSize.width * 0.8,
         height: deviceSize.height * 0.3,
         child: const Center(
-          child: Text('나는 커스텀 다이얼로그입니다.'),
+          child: Text('커스텀 다이얼로그입니다.'),
         ),
       ),
     );
