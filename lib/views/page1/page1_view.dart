@@ -27,7 +27,6 @@ class _Page1ViewState extends State<Page1View> with SingleTickerProviderStateMix
 
   @override
   void dispose() {
-    // 탭 컨트롤러 정리
     _tabController.dispose();
     super.dispose();
   }
@@ -59,7 +58,6 @@ class _Page1ViewState extends State<Page1View> with SingleTickerProviderStateMix
               ],
             ),
           ),
-          // 탭뷰를 확장하여 나머지 공간을 차지하도록 함
           Expanded(
             child: TabBarView(
               controller: _tabController,
