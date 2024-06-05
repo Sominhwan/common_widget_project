@@ -100,15 +100,6 @@ class _CustomerQAWriteViewState extends State<CustomerQAWriteView> {
                           const Row(
                             children: [
                               Text('수정 요청일 : ', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
-                              // DateSelectorCustom(
-                              //   selectedDt: DateTime.now(),
-                              //   minDt: DateTime(2010),
-                              //   maxDt: DateTime(2030, 12, 31),
-                              //   readOnly: false,
-                              //   fontWeight: FontWeight.normal,
-                              //   onChanged: (value) {
-                              //   },
-                              // ),
                             ],
                           ),
                           const SizedBox(height: 20),
