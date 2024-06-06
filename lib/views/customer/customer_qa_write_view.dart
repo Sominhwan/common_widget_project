@@ -125,12 +125,6 @@ class _CustomerQAWriteViewState extends State<CustomerQAWriteView> {
                             ),
                           ),
                           const SizedBox(height: 20),
-                          // SizedBox(
-                          //   child: IFileManageField(
-                          //     iFileManageController: fileController,
-                          //     previewTitle: '사진 미리보기',
-                          //   ),
-                          // ),
                         ],
                       ),
                     ),
