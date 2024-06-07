@@ -85,9 +85,9 @@ class _CustomerQAWriteViewState extends State<CustomerQAWriteView> {
                                 hintText: '내용을 입력하세요.',
                                 hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
                               ),
-                              maxLines: 10, // 스크롤을 가능하게 하려면 maxLines를 null로 설정
+                              maxLines: 10,
                               maxLength: null,
-                              readOnly: false, // 사용자 입력을 막고 스크롤만 가능하게 설정
+                              readOnly: false,
                               style: const TextStyle(color: Colors.black, fontSize: 16),
                               onSaved: (newValue) {
                               },
@@ -106,7 +106,7 @@ class _CustomerQAWriteViewState extends State<CustomerQAWriteView> {
                           const Text('수정/추가 요청사항', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500)),
                           const SizedBox(height: 5),
                           SingleChildScrollView(
-                            scrollDirection: Axis.vertical, // 세로 스크롤 활성화
+                            scrollDirection: Axis.vertical,
                             child: TextFormField(
                               cursorColor: Colors.black,
                               decoration: const InputDecoration(
@@ -116,7 +116,7 @@ class _CustomerQAWriteViewState extends State<CustomerQAWriteView> {
                               ),
                               maxLines: 6,
                               maxLength: null,
-                              readOnly: false, // 사용자 입력을 막고 스크롤만 가능하게 설정
+                              readOnly: false,
                               style: const TextStyle(color: Colors.black, fontSize: 16),
                               onSaved: (newValue) {
                               },
