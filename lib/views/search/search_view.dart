@@ -409,10 +409,10 @@ class _SearchViewState extends State<SearchView> {
                                                     padding: const EdgeInsets.only(right: 15),
                                                     child: Text(textKeyValueMap[i]['value']!, style: const TextStyle(fontSize: 14)),
                                                   ),
-                                                  onDeleted: null, // 필요 없으면 null 처리
+                                                  onDeleted: null,
                                                 ),
                                                 Positioned(
-                                                  right: 6, // 오른쪽 간격 조절
+                                                  right: 6,
                                                   child: GestureDetector(
                                                     onTap: () {
                                                       _viewController.removeAutoSaveText('User_search_${textKeyValueMap[i]['key']}/AutoSaveSet');
