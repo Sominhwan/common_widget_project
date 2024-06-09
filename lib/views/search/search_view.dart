@@ -301,10 +301,10 @@ class _SearchViewState extends State<SearchView> {
                   ?
               Container(
                 decoration: BoxDecoration(
-                    color: Colors.white, // 배경색
+                    color: Colors.white,
                     border: Border.all(
-                      color: const Color.fromRGBO(248, 248, 248, 1), // 테두리 색상 설정
-                      width: 1, // 테두리 두께
+                      color: const Color.fromRGBO(248, 248, 248, 1),
+                      width: 1,
                     ),
                     borderRadius: const BorderRadius.all(Radius.circular(5))
                 ),
