@@ -282,9 +282,6 @@ class _SearchViewState extends State<SearchView> {
                     if (menu.title?.toLowerCase() == _searchController.text.toLowerCase()) {
                       Navigator.of(context).pushReplacementNamed(
                         menu.path!,
-                        // arguments: RouterParameters(
-                        //   menu.path!,
-                        // ),
                       );
                     }
                   }
