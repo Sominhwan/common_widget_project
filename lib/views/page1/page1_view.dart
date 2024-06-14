@@ -21,7 +21,6 @@ class _Page1ViewState extends State<Page1View> with SingleTickerProviderStateMix
   @override
   void initState() {
     super.initState();
-    // 탭 컨트롤러 초기화
     _tabController = TabController(length: 2, vsync: this, animationDuration: Duration.zero, initialIndex: 0);
   }
 
@@ -39,7 +38,6 @@ class _Page1ViewState extends State<Page1View> with SingleTickerProviderStateMix
       ),
       body: Column(
         children: [
-          // 탭바 배치
           Padding(
             padding: const EdgeInsets.all(0),
             child: TabBar(
@@ -312,7 +310,6 @@ class _EmergencyResponseSenarioWidgetState extends State<EmergencyResponseSenari
         const Text('비상사태명', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500)),
         const SizedBox(height: 5),
         TextFormField(
-          // controller: _textInputController,
           cursorColor: Colors.black,
           decoration: const InputDecoration(
             border: OutlineInputBorder(borderSide: BorderSide.none),
