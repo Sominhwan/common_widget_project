@@ -21,7 +21,6 @@ class _Page1ViewState extends State<Page1View> with SingleTickerProviderStateMix
   @override
   void initState() {
     super.initState();
-    // 탭 컨트롤러 초기화
     _tabController = TabController(length: 2, vsync: this, animationDuration: Duration.zero, initialIndex: 0);
   }
 
