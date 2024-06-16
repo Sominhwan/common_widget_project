@@ -378,7 +378,6 @@ class _EmergencyResponseSenarioWidgetState extends State<EmergencyResponseSenari
         const Text('예상되는 피해 (안전보건영향)', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500)),
         const SizedBox(height: 5),
         TextFormField(
-          // controller: _textInputController,
           cursorColor: Colors.black,
           decoration: const InputDecoration(
             border: OutlineInputBorder(borderSide: BorderSide.none),
@@ -445,7 +444,7 @@ class _EmergencyResponseSenarioWidgetState extends State<EmergencyResponseSenari
                 TableRow(
                   children: [
                     const Padding(
-                      padding: EdgeInsets.only(right: 8, top: 5), // Add some spacing between the text and the text field
+                      padding: EdgeInsets.only(right: 8, top: 5),
                       child: Text('비고', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
                     ),
                     TextFormField(
