@@ -15,7 +15,6 @@ class Page1View extends StatefulWidget {
 }
 
 class _Page1ViewState extends State<Page1View> with SingleTickerProviderStateMixin {
-  // TabController 추가
   late TabController _tabController;
 
   @override
