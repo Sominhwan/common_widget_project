@@ -501,7 +501,7 @@ class _SearchViewState extends State<SearchView> {
                                           width: 22,
                                           colorFilter: const ColorFilter.mode(
                                             Color.fromRGBO(215, 215, 215, 1),
-                                            BlendMode.srcIn, // 이 모드는 SVG의 색상 대체
+                                            BlendMode.srcIn,
                                           ),
                                         ),
                                       )
