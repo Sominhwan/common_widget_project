@@ -21,7 +21,7 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
   final TextEditingController _pwController = TextEditingController();
   final TextEditingController _rePwController = TextEditingController();
   final TextEditingController _phoneNumController = TextEditingController();
-  // FocusNode 인스턴스 생성
+
   final FocusNode _nameFocus = FocusNode();
   final FocusNode _emailFocus = FocusNode();
   final FocusNode _idFocus = FocusNode();
@@ -29,7 +29,7 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
   final FocusNode _rePasswordFocus = FocusNode();
   final FocusNode _phoneNumFocus = FocusNode();
 
-  late bool _isDuplicateCheckRequired = false; // 중복확인 validator 상태 관리 변수 추가
+  late bool _isDuplicateCheckRequired = false;
   late bool passwordFlag = false;
   late bool passwordFlag2 = false;
   bool _obscureText = true;
