@@ -275,7 +275,7 @@ class _SearchViewState extends State<SearchView> {
                         }
                       });
                     }
-                    autoSaveSeq++; // 자동 저장 순서 번호 증가
+                    autoSaveSeq++;
                   }
                   for (var menu in _menuAuthList) {
                     if (menu.title?.toLowerCase() == _searchController.text.toLowerCase()) {
