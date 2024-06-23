@@ -331,7 +331,6 @@ class _EmergencyResponseSenarioWidgetState extends State<EmergencyResponseSenari
         const Text('장소', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500)),
         const SizedBox(height: 5),
         TextFormField(
-          // controller: _textInputController,
           cursorColor: Colors.black,
           decoration: const InputDecoration(
             border: OutlineInputBorder(borderSide: BorderSide.none),
@@ -354,7 +353,6 @@ class _EmergencyResponseSenarioWidgetState extends State<EmergencyResponseSenari
         const Text('발생내용', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500)),
         const SizedBox(height: 5),
         TextFormField(
-          // controller: _textInputController,
           cursorColor: Colors.black,
           decoration: const InputDecoration(
             border: OutlineInputBorder(borderSide: BorderSide.none),
