@@ -429,7 +429,6 @@ class _EmergencyResponseSenarioWidgetState extends State<EmergencyResponseSenari
                         initialValue: '1분',
                         maxLines: 1,
                         onSaved: (newValue) {
-                          // Handle save
                         },
                         validator: (value) {
                           return value != null && value.isEmpty ? '필수입력입니다.' : null;
@@ -458,7 +457,6 @@ class _EmergencyResponseSenarioWidgetState extends State<EmergencyResponseSenari
                       initialValue: '2분',
                       maxLines: null,
                       onSaved: (newValue) {
-                        // Handle save
                       },
                       validator: (value) {
                         return value != null && value.isEmpty ? '필수입력입니다.' : null;
