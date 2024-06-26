@@ -163,7 +163,7 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                             ) : null,
                           ),
                           enabled: true,
-                          style: const TextStyle(color: Colors.black), // 텍스트 색상 변경
+                          style: const TextStyle(color: Colors.black),
                           maxLines: 1,
                           onChanged: (value) {
 
@@ -190,7 +190,7 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                           cursorColor: Colors.black,
                           focusNode: _emailFocus,
                           onFieldSubmitted: (term) {
-                            _fieldFocusChange(context, _emailFocus, _idFocus); // 다음 필드로 포커스 이동
+                            _fieldFocusChange(context, _emailFocus, _idFocus);
                           },
                           decoration: InputDecoration(
                             border: const OutlineInputBorder(borderSide: BorderSide(color: Colors.transparent), borderRadius: BorderRadius.zero,), // 기본 테두리 색상
