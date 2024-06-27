@@ -217,7 +217,7 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                             ) : null,
                           ),
                           enabled: true,
-                          style: const TextStyle(color: Colors.black), // 텍스트 색상 변경
+                          style: const TextStyle(color: Colors.black),
                           maxLines: 1,
                           onChanged: (value) {
 
