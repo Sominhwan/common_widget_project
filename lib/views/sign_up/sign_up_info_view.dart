@@ -432,7 +432,6 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
 
                           },
                           validator: (value) {
-                            // 비밀번호 필드가 비어있지 않은지 먼저 확인
                             if (value == null || value.isEmpty) {
                               return '필수 입력 항목입니다.';
                             }
