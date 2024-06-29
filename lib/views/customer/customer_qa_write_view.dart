@@ -77,7 +77,7 @@ class _CustomerQAWriteViewState extends State<CustomerQAWriteView> {
                           const Text('문제내용', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500)),
                           const SizedBox(height: 5),
                           SingleChildScrollView(
-                            scrollDirection: Axis.vertical, // 세로 스크롤 활성화
+                            scrollDirection: Axis.vertical,
                             child: TextFormField(
                               cursorColor: Colors.black,
                               decoration: const InputDecoration(
