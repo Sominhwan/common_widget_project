@@ -84,7 +84,7 @@ class _SearchViewState extends State<SearchView> {
       );
       start = indexOfHighlight + query.length;
     }
-    // 마지막 검색어 이후의 텍스트 부분
+
     if (start < text.length) {
       spans.add(TextSpan(text: text.substring(start)));
     }
