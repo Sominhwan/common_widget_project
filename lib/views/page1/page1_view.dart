@@ -385,7 +385,7 @@ class _EmergencyResponseSenarioWidgetState extends State<EmergencyResponseSenari
             contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           ),
           enabled: true,
-          style: const TextStyle(color: Colors.black), // 텍스트 색상 변경
+          style: const TextStyle(color: Colors.black),
           initialValue: '테스트',
           maxLines: null,
           onSaved: (newValue) {},
