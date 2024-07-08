@@ -264,7 +264,7 @@ class _EmergencyResponseSenarioWidgetState extends State<EmergencyResponseSenari
                                         : const SizedBox(
                                       height: 100,
                                       child: Center(
-                                        child: Text('서명 추가', style: TextStyle(color: Color.fromRGBO(220, 220, 220, 1))), // 대체 텍스트를 표시
+                                        child: Text('서명 추가', style: TextStyle(color: Color.fromRGBO(220, 220, 220, 1))),
                                       ),
                                     ),
                                   );
