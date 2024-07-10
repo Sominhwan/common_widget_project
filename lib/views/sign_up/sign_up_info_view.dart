@@ -447,9 +447,9 @@ class _SignUpInfoViewState extends State<SignUpInfoView> {
                             _fieldFocusChange(context, _rePasswordFocus, _phoneNumFocus);
                           },
                           decoration: InputDecoration(
-                            border: const OutlineInputBorder(borderSide: BorderSide(color: Colors.transparent), borderRadius: BorderRadius.zero,), // 기본 테두리 색상
-                            enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(203, 203, 203, 1)), borderRadius: BorderRadius.zero,), // 비활성화 상태의 테두리 색상
-                            focusedBorder: const OutlineInputBorder(borderSide: BorderSide(color: Colors.blue), borderRadius: BorderRadius.zero), // 활성화 상태의 테두리 색상
+                            border: const OutlineInputBorder(borderSide: BorderSide(color: Colors.transparent), borderRadius: BorderRadius.zero,),
+                            enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(203, 203, 203, 1)), borderRadius: BorderRadius.zero,),
+                            focusedBorder: const OutlineInputBorder(borderSide: BorderSide(color: Colors.blue), borderRadius: BorderRadius.zero),
                             filled: true,
                             fillColor: Colors.white,
                             hintText: '비밀번호 재입력',
